@@ -3245,9 +3245,9 @@ var classes = {
 		height: '100%',
 		justifyContent: 'center',
 		left: 0,
-		position: 'fixed',
 		top: 0,
 		width: '100%',
+		position: 'fixed',
 		zIndex: _theme2.default.modal.zIndex
 	},
 	dialog: {
@@ -3257,7 +3257,9 @@ var classes = {
 		paddingLeft: _theme2.default.modal.padding.dialog.horizontal,
 		paddingRight: _theme2.default.modal.padding.dialog.horizontal,
 		paddingTop: _theme2.default.modal.padding.dialog.vertical,
-		position: 'relative'
+		position: 'relative',
+		maxHeight: '90%',
+		overflowY: 'auto'
 	}
 };
 
@@ -5560,7 +5562,6 @@ object-assign
 
 'use strict';
 /* eslint-disable no-unused-vars */
-
 var getOwnPropertySymbols = Object.getOwnPropertySymbols;
 var hasOwnProperty = Object.prototype.hasOwnProperty;
 var propIsEnumerable = Object.prototype.propertyIsEnumerable;
@@ -5582,7 +5583,7 @@ function shouldUseNative() {
 		// Detect buggy property enumeration order in older V8 versions.
 
 		// https://bugs.chromium.org/p/v8/issues/detail?id=4118
-		var test1 = new String('abc'); // eslint-disable-line no-new-wrappers
+		var test1 = new String('abc');  // eslint-disable-line no-new-wrappers
 		test1[5] = 'de';
 		if (Object.getOwnPropertyNames(test1)[0] === '5') {
 			return false;
@@ -5605,7 +5606,8 @@ function shouldUseNative() {
 		'abcdefghijklmnopqrst'.split('').forEach(function (letter) {
 			test3[letter] = letter;
 		});
-		if (Object.keys(Object.assign({}, test3)).join('') !== 'abcdefghijklmnopqrst') {
+		if (Object.keys(Object.assign({}, test3)).join('') !==
+				'abcdefghijklmnopqrst') {
 			return false;
 		}
 

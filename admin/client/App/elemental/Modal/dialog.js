@@ -69,7 +69,6 @@ class ModalDialog extends Component {
 
 		if (!isOpen) return <span key="closed" />;
 
-		console.log('hello')
 		return (
 			<div
 				className={css(classes.container)}
@@ -78,7 +77,7 @@ class ModalDialog extends Component {
 				onClick={!!backdropClosesModal && this.handleBackdropClick}
 				onTouchEnd={!!backdropClosesModal && this.handleBackdropClick}
 			>
-				<div className={css(classes.dialog)} style={{ width, overflowY: 'scroll', maxHeight: '90%' }} data-screen-id="modal-dialog">
+				<div className={css(classes.dialog)} style={{ width}} data-screen-id="modal-dialog">
 					{children}
 				</div>
 				<ScrollLock />
@@ -120,6 +119,7 @@ const classes = {
 		left: 0,
 		top: 0,
 		width: '100%',
+		position: 'fixed',
 		zIndex: theme.modal.zIndex,
 	},
 	dialog: {
@@ -130,6 +130,8 @@ const classes = {
 		paddingRight: theme.modal.padding.dialog.horizontal,
 		paddingTop: theme.modal.padding.dialog.vertical,
 		position: 'relative',
+		maxHeight: '90%',
+		overflowY: 'auto',
 	},
 };
 
